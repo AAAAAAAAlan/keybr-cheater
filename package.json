@@ -1,0 +1,15 @@
+{
+  "name": "keybr-cheater",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^7.30.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.4",
+    "nodemon": "^2.0.12"
+  },
+  "dependencies": {
+    "puppeteer": "^10.1.0"
+  }
+}
