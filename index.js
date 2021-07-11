@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer');
 
 (async () => {
-  const browser = await puppeteer.launch({ headless: false, defaultViewport: null });
+  const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.goto('https://www.keybr.com/multiplayer');
 
@@ -36,7 +36,13 @@ const puppeteer = require('puppeteer');
     const trackTicker = await page.$('.Track-ticker');
     const trackTickerText = await page.evaluate((el) => el.textContent, trackTicker);
 
-    console.log(`Status: ${trackTickerText}`, '\n', `Time: ${new Date()}`);
+    const userName = await page.$$('.UserName-name');
+    const userNameText = await page.evaluate((el) => el.textContent, userName[userName.length - 1]);
+
+    console.log('\x1b[36m', `Status: ${trackTickerText}`);
+    console.log('\x1b[31m', `Time: ${new Date()}`);
+    console.log('\x1b[33m', `Username: ${userNameText}`);
+    console.log('\x1b[35m', '=====================================');
 
     if (trackTickerText !== 'GO!') {
       checkIfRaceStarted();
