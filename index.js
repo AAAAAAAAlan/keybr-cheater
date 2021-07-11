@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer');
 
 (async () => {
-  const browser = await puppeteer.launch({ headless: false, defaultViewport: null });
+  const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.goto('https://www.keybr.com/multiplayer');
 
